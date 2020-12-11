@@ -4,13 +4,12 @@
  */
 package com.tcs.service
 
-import org.springframework.boot.autoconfigure.SpringBootApplication
+//import org.springframework.boot.autoconfigure.SpringBootApplication
 import java.util.*
 
 /**
  * Dapr's Main Application to run using fatjar. This class will call the main source provided by user dynamically.
  */
-@SpringBootApplication
 
 class DaprMainApplication
 
@@ -27,6 +26,9 @@ fun main(args: Array<String>) {
     val methodArgs = arrayOfNulls<Any>(1)
     methodArgs[0] = arguments
     println("methodArgs :: " + methodArgs[0])
+    methodArgs.forEach {
+        println("methodArgs ITERATION :: " + it)
+    }
 
     mainMethod.invoke(mainClass, *methodArgs)
 }
